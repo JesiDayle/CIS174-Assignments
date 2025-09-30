@@ -1,0 +1,9 @@
+﻿@model cis174DMACCJessicaJohnson.Models.Student
+
+<div>
+    @Model.FirstName @Model.LastName
+    @if ((ViewData["ShowGrade"] as bool?) == true)
+    {
+        <span> - Grade: @Model.Grade</span>
+    }
+</div>

@@ -1,0 +1,34 @@
+﻿@model List<cis174DMACCJessicaJohnson.Models.Student>
+
+@{
+    ViewData["Title"] = "Assignment 6.1";
+    int accessLevel = (int)(ViewData["AccessLevel"] ?? 1); // fallback just in case
+}
+
+<h2>Assignment 6.1</h2>
+
+@if (accessLevel < 2)
+{
+    <p>You do not have a sufficient access level to view this data.</p>
+}
+else
+{
+    if (accessLevel >= 8)
+    {
+        <p>Hello Admin</p>
+    }
+
+    @foreach (var student in Model)
+    {
+        if (accessLevel >= 8)
+        {
+            // show full info including grade
+            <div>@student.FirstName @student.LastName - Grade: @student.Grade</div>
+        }
+        else
+        {
+            // show only first and last name
+            <div>@student.FirstName @student.LastName</div>
+        }
+    }
+}
