@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OlympicDataTransfer.Models.OlympicEntry>
+
+@{
+    ViewBag.Title = "Olympic Countries";
+    string selectedGame = ViewBag.Game as string ?? "ALL";
+    string selectedType = ViewBag.Type as string ?? "ALL";
+}
+
+<h1 style="text-align:center; margin-top:20px;">Olympic Countries</h1>
+
+<form method="get" asp-action="Index" style="text-align:center; margin-bottom:20px;">
+    <label for="game">Game:</label>
+    <select id="game" name="game" onchange="this.form.submit()">
+        <option value="ALL" selected="@(selectedGame == "ALL")">ALL</option>
+        <option value="Winter Olympics" selected="@(selectedGame == "Winter Olympics")">Winter Olympics</option>
+        <option value="Summer Olympics" selected="@(selectedGame == "Summer Olympics")">Summer Olympics</option>
+        <option value="Paralympics" selected="@(selectedGame == "Paralympics")">Paralympics</option>
+        <option value="Youth Olympic Games" selected="@(selectedGame == "Youth Olympic Games")">Youth Olympic Games</option>
+    </select>
+
+    <label for="type">Type:</label>
+    <select id="type" name="type" onchange="this.form.submit()">
+        <option value="ALL" selected="@(selectedType == "ALL")">ALL</option>
+        <option value="Indoor" selected="@(selectedType == "Indoor")">Indoor</option>
+        <option value="Outdoor" selected="@(selectedType == "Outdoor")">Outdoor</option>
+    </select>
+</form>
+
+<div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:20px;">
+    @foreach (var entry in Model)
+    {
+        <div style="text-align:center;">
+            <img src="@entry.FlagPath"
+                 alt="@entry.Country Flag"
+                 title="@($"{entry.Country} - {entry.Game} ({entry.Type})")"
+                 style="width:120px; height:auto; border-radius:8px; border:2px solid #ccc; box-shadow:0 2px 6px rgba(0,0,0,0.2);" />
+            <div style="margin-top:5px; font-weight:bold;">@entry.Country</div>
+        </div>
+    }
+</div>

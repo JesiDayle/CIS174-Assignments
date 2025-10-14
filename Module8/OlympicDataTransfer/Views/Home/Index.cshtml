@@ -1,0 +1,50 @@
+﻿@model List<OlympicDataTransfer.Models.OlympicEntry>
+
+@{
+    ViewData["Title"] = "Olympic Games";
+}
+
+<div class="row">
+    <div class="col-3">
+        <h5>Filter by Game</h5>
+        <ul class="list-group mb-3">
+            <li class="list-group-item @(ViewBag.SelectedGame == "ALL" ? "active" : "")">
+                <a asp-controller="Home" asp-action="Index" asp-route-gameFilter="ALL" asp-route-typeFilter="@ViewBag.SelectedType">ALL</a>
+            </li>
+            @foreach (var g in ViewBag.Games)
+            {
+                <li class="list-group-item @(ViewBag.SelectedGame == g ? "active" : "")">
+                    <a asp-controller="Home" asp-action="Index" asp-route-gameFilter="@g" asp-route-typeFilter="@ViewBag.SelectedType">@g</a>
+                </li>
+            }
+        </ul>
+
+        <h5>Filter by Type</h5>
+        <ul class="list-group mb-3">
+            <li class="list-group-item @(ViewBag.SelectedType == "ALL" ? "active" : "")">
+                <a asp-controller="Home" asp-action="Index" asp-route-gameFilter="@ViewBag.SelectedGame" asp-route-typeFilter="ALL">ALL</a>
+            </li>
+            @foreach (var t in ViewBag.Types)
+            {
+                <li class="list-group-item @(ViewBag.SelectedType == t ? "active" : "")">
+                    <a asp-controller="Home" asp-action="Index" asp-route-gameFilter="@ViewBag.SelectedGame" asp-route-typeFilter="@t">@t</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-9">
+        <div class="row">
+            @foreach (var entry in Model)
+            {
+                <div class="col-3 text-center mb-3">
+                    <a asp-controller="Home" asp-action="Details" asp-route-country="@entry.Country"
+                       title="@entry.Country - @entry.Game / @entry.Type">
+                        <img src="@entry.FlagPath" class="img-fluid" />
+                    </a>
+                    <div>@entry.Country</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
