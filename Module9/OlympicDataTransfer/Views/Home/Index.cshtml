@@ -1,0 +1,50 @@
+﻿@model OlympicDataTransfer.Models.OlympicFilterViewModel
+
+@{
+    ViewData["Title"] = "Olympic Games";
+}
+
+<div class="row">
+    <div class="col-3">
+        <h5>Filter by Game</h5>
+        <ul class="list-group mb-3">
+            <li class="list-group-item @(Model.GameFilter == "ALL" ? "active" : "")">
+                <a asp-action="Index" asp-route-GameFilter="ALL" asp-route-TypeFilter="@Model.TypeFilter">ALL</a>
+            </li>
+            @foreach (var g in Model.Games ?? new List<string>())
+            {
+                <li class="list-group-item @(Model.GameFilter == g ? "active" : "")">
+                    <a asp-action="Index" asp-route-GameFilter="@g" asp-route-TypeFilter="@Model.TypeFilter">@g</a>
+                </li>
+            }
+        </ul>
+
+        <h5>Filter by Type</h5>
+        <ul class="list-group mb-3">
+            <li class="list-group-item @(Model.TypeFilter == "ALL" ? "active" : "")">
+                <a asp-action="Index" asp-route-GameFilter="@Model.GameFilter" asp-route-TypeFilter="ALL">ALL</a>
+            </li>
+            @foreach (var t in Model.Types ?? new List<string>())
+            {
+                <li class="list-group-item @(Model.TypeFilter == t ? "active" : "")">
+                    <a asp-action="Index" asp-route-GameFilter="@Model.GameFilter" asp-route-TypeFilter="@t">@t</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-9">
+        <div class="row">
+            @foreach (var entry in Model.Entries ?? new List<OlympicDataTransfer.Models.OlympicEntry>())
+            {
+                <div class="col-3 text-center mb-3">
+                    <a asp-action="Details" asp-route-country="@entry.Country"
+                       title="@entry.Country - @entry.Game / @entry.Type">
+                        <img src="@entry.FlagPath" class="img-fluid" />
+                    </a>
+                    <div>@entry.Country</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
