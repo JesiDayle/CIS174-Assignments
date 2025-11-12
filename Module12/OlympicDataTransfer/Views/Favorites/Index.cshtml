@@ -1,0 +1,41 @@
+﻿@model List<OlympicDataTransfer.Models.OlympicEntry>
+
+@{
+    ViewData["Title"] = "My Favorites";
+}
+
+<h2>My Favorite Olympic Entries</h2>
+
+@if (Model != null && Model.Any())
+{
+    <div class="list-group mt-3">
+        @foreach (var entry in Model)
+        {
+            <div class="list-group-item mb-2 p-3 border">
+                <div class="d-flex align-items-center">
+                    @if (!string.IsNullOrEmpty(entry.FlagPath))
+                    {
+                        <img src="@entry.FlagPath" alt="@entry.Country Flag" class="me-3" style="width:50px;height:auto;" />
+                    }
+                    <div>
+                        <h5>@entry.Game (@entry.Type)</h5>
+                        <p class="mb-1"><strong>Country:</strong> @entry.Country</p>
+                        <p class="mb-1"><strong>Sport:</strong> @entry.Sport</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>You have no favorites yet.</p>
+}
+
+<div class="mt-4">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Return to Home Page</a>
+
+    <form asp-controller="Favorites" asp-action="ClearFavorites" method="post" class="d-inline">
+        <button type="submit" class="btn btn-danger">Clear Favorites</button>
+    </form>
+</div>

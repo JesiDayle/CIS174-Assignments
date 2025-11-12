@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlympicDataTransfer", "OlympicDataTransfer.csproj", "{42AFC7CB-96A2-4EC2-967A-2C54343A7CE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlympicDataTransfer.Tests", "..\OlympicDataTransfer.Tests\OlympicDataTransfer.Tests.csproj", "{285A4824-D65E-43F8-8D9A-98F653EC6E34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42AFC7CB-96A2-4EC2-967A-2C54343A7CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42AFC7CB-96A2-4EC2-967A-2C54343A7CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42AFC7CB-96A2-4EC2-967A-2C54343A7CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42AFC7CB-96A2-4EC2-967A-2C54343A7CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285A4824-D65E-43F8-8D9A-98F653EC6E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285A4824-D65E-43F8-8D9A-98F653EC6E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285A4824-D65E-43F8-8D9A-98F653EC6E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285A4824-D65E-43F8-8D9A-98F653EC6E34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BA69B58-8DF5-4530-97DC-4B9FF660FB70}
+	EndGlobalSection
+EndGlobal
