@@ -1,0 +1,15 @@
+﻿@model OlympicDataTransfer.Models.Ticket
+
+@{
+    ViewData["Title"] = "Create Ticket";
+    ViewData["Action"] = "Create";
+    ViewData["ButtonText"] = "Create Ticket";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@await Html.PartialAsync("_TicketFormPartial", Model)
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

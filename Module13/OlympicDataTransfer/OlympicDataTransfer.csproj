@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Flags\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Flags\austria.png" />
+    <None Include="wwwroot\Flags\brazil.png" />
+    <None Include="wwwroot\Flags\canada.png" />
+    <None Include="wwwroot\Flags\china.png" />
+    <None Include="wwwroot\Flags\cyprus.png" />
+    <None Include="wwwroot\Flags\finland.png" />
+    <None Include="wwwroot\Flags\france.png" />
+    <None Include="wwwroot\Flags\germany.png" />
+    <None Include="wwwroot\Flags\greatbritain.png" />
+    <None Include="wwwroot\Flags\italy.png" />
+    <None Include="wwwroot\Flags\jamaica.png" />
+    <None Include="wwwroot\Flags\japan.png" />
+    <None Include="wwwroot\Flags\mexico.png" />
+    <None Include="wwwroot\Flags\netherlands.png" />
+    <None Include="wwwroot\Flags\pakistan.png" />
+    <None Include="wwwroot\Flags\portugal.png" />
+    <None Include="wwwroot\Flags\russia.png" />
+    <None Include="wwwroot\Flags\slovakia.png" />
+    <None Include="wwwroot\Flags\sweden.png" />
+    <None Include="wwwroot\Flags\thailand.png" />
+    <None Include="wwwroot\Flags\ukraine.png" />
+    <None Include="wwwroot\Flags\uruguay.png" />
+    <None Include="wwwroot\Flags\usa.png" />
+    <None Include="wwwroot\Flags\zimbabwe.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+</Project>
