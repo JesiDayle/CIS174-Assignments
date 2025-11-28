@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<OlympicDataTransfer.Models.ApplicationUser> SignInManager
+@model List<OlympicDataTransfer.Models.Ticket>
+
+<h2>Tickets</h2>
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    <div class="alert alert-info">
+        You must
+        <a asp-area="Identity" asp-page="/Account/Login"
+           asp-route-returnUrl="@Url.Action("Index", "Tickets")">
+            log in
+        </a>
+        to view and manage tickets.
+    </div>
+}
+else if (Model.Count == 0)
+{
+    <p>No tickets available.</p>
+}
+else
+{
+    <a asp-action="Create" class="btn btn-primary mb-3">Add Ticket</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Sprint</th>
+                <th>Points</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr>
+                    <td>@t.Name</td>
+                    <td>@t.Description</td>
+                    <td>@t.SprintNumber</td>
+                    <td>@t.Points</td>
+                    <td>@t.Status</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@t.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@t.Id" class="btn btn-sm btn-danger">Delete</a>
+                        <a asp-action="Details" asp-route-id="@t.Id" class="btn btn-sm btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

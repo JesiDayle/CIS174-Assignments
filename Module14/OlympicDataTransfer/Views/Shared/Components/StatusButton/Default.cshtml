@@ -1,0 +1,14 @@
+﻿@model string
+
+@{
+    string btnClass = Model switch
+    {
+        "To Do" => "btn btn-secondary",
+        "In Progress" => "btn btn-warning",
+        "QA" => "btn btn-info",
+        "Done" => "btn btn-success",
+        _ => "btn btn-light" 
+    };
+}
+
+<button type="button" class="@btnClass">@Model</button>

@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Login Required";
+}
+
+<h2>Tickets</h2>
+
+<p>You must <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("Index", "Tickets")">log in</a> to view the tickets.</p>

@@ -1,0 +1,60 @@
+﻿@model OlympicDataTransfer.Models.Ticket
+@{
+    // Get the button text from ViewData, fallback to "Submit"
+    var buttonText = ViewData["ButtonText"] as string ?? "Submit";
+}
+
+<form asp-action="@ViewData["Action"]" method="post">
+    @if (Model.Id != 0)
+    {
+        <input type="hidden" asp-for="Id" />
+    }
+
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SprintNumber"></label>
+        <input asp-for="SprintNumber" class="form-control" type="number" min="1" />
+        <span asp-validation-for="SprintNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Points"></label>
+        <input asp-for="Points" class="form-control" type="number" min="0" max="100" />
+        <span asp-validation-for="Points" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option>To Do</option>
+            <option>In Progress</option>
+            <option>QA</option>
+            <option>Done</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <label>Status Preview:</label>
+        @await Component.InvokeAsync("StatusButton", new { status = Model.Status })
+    </div>
+
+    <button submit-button CssClass="btn btn-success">@buttonText</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
